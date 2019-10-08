@@ -27,6 +27,27 @@ broadcast level data =
 
 broadcast_id, abstract_text (without the blurb at top and bottom and cleans out html etc. but keeps paragraph and line breaks), duration, reporter(s), channel, date, program_name (e.g., CBS Evening News for Sunday), ...
 
+## Testing
+
+To make sure, we downloaded all the files, we spot checked existence of various files and compared actual number of links to actual number of files.
+
+## Scripts
+
+1. Scraping
+2. Parsing
+
+## Final Data
+
+1. Raw HTML
+2. Final CSV
+
+
+
+
+
+
+
+
 
 
 
