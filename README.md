@@ -42,7 +42,9 @@ To make sure, we downloaded all the files, we spot checked existence of various 
 2. Final CSV
 
 
+## More About the Vanderbilt News Archive
 
+https://en.wikipedia.org/wiki/Vanderbilt_Television_News_Archive
 
 
 
