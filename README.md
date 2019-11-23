@@ -1,31 +1,32 @@
-# Abstracts from Vanderbilt Broadcast TV News Archives 
+## Abstracts from Vanderbilt Broadcast TV News Archives 
 
-Base URL: https://tvnews.vanderbilt.edu/siteindex
+We provide scripts to scrape and parse the Vanderbilt Broadcast TV News Archives and link to a dataset that includes both the raw files and the parsed data. 
 
-## Scraping
+### Final Dataset
 
-Download all broadcast pages ala: https://tvnews.vanderbilt.edu/broadcasts/84165
+Our final parsed dataset is at the program segment level. Each `program` has multiple `broadcast` segments. Each `broadcast` segment gets its own row. The dataset has the following columns:
 
-To do that:
+`date, program_title, program_duration, broadcast_title, broadcast_duration, broadcast_time, broadcast_order, broadcast_abstract, reporter(s)`
 
-1. Iterate over the site-index to get all the months
-2. Within each month, iterate over each channel-day
-3. And within each channel day, iterate over each broadcast
+#### Data Dictionary
 
-When downloading, we need to put it in an organized way: 
-* Store all month pages under monthly-pages
-* Store all broadcast pages under broadcast
+`reporter(s)`: For instance, for this [https://tvnews.vanderbilt.edu/broadcasts/16](broadcast), the reporters are: Cosell, Howard; Reynolds, Frank
 
-Create a CSV with metadata that links each broadcast to all the relevant file names, which is =
-broadcast_id (which will be the same as the filename and hence allow us to build a relative URL to it; where there is 'no broadcast', it is left as empty), channel, date, month-page-name (e.g., 1983-5, which will allow us to build a relative URL to month-page), channel-date-list (list of all the broadcasts)
+`broadcast_time`: For instance, for https://tvnews.vanderbilt.edu/programs/1, the broadcast time for `WORLD SERIES / MCLAIN / GIBSON #16` is `12:20:40 am — 12:22:50 am`
 
-## Parsing
+`broadcast_order`: For instance, for https://tvnews.vanderbilt.edu/programs/1, the broadcast time for `WORLD SERIES / MCLAIN / GIBSON #16` is `16`
 
-Parse the webpages into a broadcast level dataset which we will then concatenate to a program-date level dataset.
+`broadcast_abstract`: Actual text of the broadcast without the header or footer. 
 
-broadcast level data =
+### Scraping
 
-broadcast_id, abstract_text (without the blurb at top and bottom and cleans out html etc. but keeps paragraph and line breaks), duration, reporter(s), channel, date, program_name (e.g., CBS Evening News for Sunday), ...
+We start from the [https://tvnews.vanderbilt.edu/siteindex](site index). And then download all the month-year pages.
+
+The `program` and `broadcast` pages rely on a simple counter. So we iterate over all program and broadcast pages. There are a total of 1,143,009 program pages and a total of 1,143,022 broadcast pages.
+
+We then parse the data to produce the CSV. 
+
+When there is no relevant `broadcast` page, we leave the `broadcast_abstract`, `reporter(s)` fields empty.
 
 ## Testing
 
@@ -33,14 +34,14 @@ To make sure, we downloaded all the files, we spot checked existence of various 
 
 ## Scripts
 
-1. Scraping
-2. Parsing
+1. [Scraping]()
+2. [Parsing]()
+3. [Testing]()
 
 ## Final Data
 
-1. Raw HTML
-2. Final CSV
-
+1. [Raw HTML]()
+2. [Final CSV]()
 
 ## More About the Vanderbilt News Archive
 
