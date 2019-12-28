@@ -40,18 +40,21 @@ To make sure, we downloaded all the files, we spot checked existence of various 
 
 ## Final Data
 
-1. [Raw HTML]()
-2. [Final CSV]()
+Final data posted at [https://doi.org/10.7910/DVN/BP2JXU](Harvard Dataverse)
+
+* Raw HTML 
+* Final CSV
+
+CSV snippet
+
+```
+
+
+```
 
 ## More About the Vanderbilt News Archive
 
 https://en.wikipedia.org/wiki/Vanderbilt_Television_News_Archive
-
-
-
-
-
-
 
 
 
