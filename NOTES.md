@@ -1,9 +1,11 @@
 There are a few issues on the Vanderbilt News Archive:-
 
 * HTML error in dl tag
+
     https://tvnews.vanderbilt.edu/broadcasts/1140139
 
 * Missing durations
+
     https://tvnews.vanderbilt.edu/broadcasts/727224
     https://tvnews.vanderbilt.edu/broadcasts/731091
     https://tvnews.vanderbilt.edu/broadcasts/732487
@@ -12,10 +14,12 @@ There are a few issues on the Vanderbilt News Archive:-
     https://tvnews.vanderbilt.edu/broadcasts/717259
 
 * Missing broadcasts
+
     https://tvnews.vanderbilt.edu/broadcasts/261083
     https://tvnews.vanderbilt.edu/broadcasts/659788
 
 * Missing programs (URL / referer)
+
     https://tvnews.vanderbilt.edu/programs/1103634 https://tvnews.vanderbilt.edu/broadcasts/1103641
     https://tvnews.vanderbilt.edu/programs/1103609 https://tvnews.vanderbilt.edu/broadcasts/1103619
     https://tvnews.vanderbilt.edu/programs/1053730 https://tvnews.vanderbilt.edu/broadcasts/1053750
