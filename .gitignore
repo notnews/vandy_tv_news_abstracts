@@ -1,0 +1,7 @@
+.*
+!.gitignore
+__pycache__/
+html/
+*.csv
+*.bz2
+
