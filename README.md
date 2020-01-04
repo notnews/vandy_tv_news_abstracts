@@ -34,37 +34,36 @@ To make sure, we downloaded all the files, we spot checked existence of various 
 
 ## Scripts
 
-[The scripts](vandy/vandy) to scrape and parse are written in Python as a spider using Scrapy framework.
+[The scripts](vandy/vandy) to scrape and parse are written in Python as a spider using the Scrapy framework.
 
-### Install
+### Installation
 
-We strongly recommend installing insex inside a Python virtual environment (see [venv documentation](https://docs.python.org/3/library/venv.html#creating-virtual-environments))
+We strongly recommend installing `vandy` inside a Python virtual environment (see [venv documentation](https://docs.python.org/3/library/venv.html#creating-virtual-environments))
 
     pip install scrapy
     git clone https://github.com/soodoku/vandy_tv_news_abstracts.git
 
-
 ### Run the spider
 
-To scrape all broadcasts
+To scrape all the broadcasts:
 
     cd  vandy_tv_news_abstracts/vandy
     scrapy crawl vandy_news -o vandy.csv -t csv --loglevel INFO
 
-or you may filter the spider to a specific month using filter argument:-
+or you may filter the spider to a specific month using the filter argument:
 
     cd  vandy_tv_news_abstracts/vandy
     scrapy crawl vandy_news -a filter=2019-11 -o 2019-11.csv -t csv --loglevel INFO
 
 ## Final Data
 
-Final data posted at [Harvard Dataverse](https://doi.org/10.7910/DVN/BP2JXU)
+Final data is posted at [Harvard Dataverse](https://doi.org/10.7910/DVN/BP2JXU)
 
 * Raw HTML (`html-vandy.tar.bz2.parta*`)
     To joined them to a file please run ```cat html-vandy.tar.bz2.parta* > html-vandy.tar.bz2```
 * Final CSV (`vandy.csv`)
 
-The Scrapy HTTP cache (`httpcach-vandy.tar.bz2`) also posted. Please extract it to `.scrapy` under the `vandy` folder then the spider can used the webpages from the cached data if you don't want to get the live data from the website.
+The Scrapy HTTP cache (`httpcach-vandy.tar.bz2`) is also posted. Please extract it to `.scrapy` under the `vandy` folder. Then the spider can use the webpages from the cached data if you don't want to get the live data from the website.
 
 ### CSV snippet
 
@@ -80,7 +79,7 @@ The Scrapy HTTP cache (`httpcach-vandy.tar.bz2`) also posted. Please extract it 
 |President George W. Bush opens the second day of the Economic Conference  in Washington D.C.Analysis of speech and discussion of "War on Terror" offered by Bill Kristol, editor of "The Weekly Standard" and Fox News Political Analyst.                                                                                                                                                                                                                                                                                                                                                           |00:08:50          |1141931        |                                                    |                       |George W. Bush: Speech at Economic Conference|Thursday, Dec 16, 2004|                |FNC Special  |
 |(Studio: Bob Schieffer)  Report introduced.(Vilnius: Cinny Kennard)  Visit by Pope John Paul II to the former Soviet republic of Lithuania featured; scenes shown of the ceremonies in Vilnius, Lithuania.  [Lithuanian WOMAN - comments.] The status of the Roman Catholic Church in the Soviet era and now outlined.  [Reverend Ausvydas BELICKAS - talks about rebuilding.]                                                                                                                                                                                                                      |00:02:10          |352935         |Kennard, Cinny;Schieffer, Bob                       |05:36:30 pm-05:38:40 pm|Lithuania / Pope John Paul II Visit|Saturday, Sep 04, 1993|28 minutes      |CBS Evening News|
 
-There are a few [issues](NOTES.md) found on the Vanderbilt News Archive.
+When scraping and parsing, we found a few issues. We describe the issues [here](NOTES.md).
 
 ## More About the Vanderbilt News Archive
 
