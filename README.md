@@ -55,13 +55,30 @@ or you may filter the spider to a specific month using the filter argument:
     cd  vandy_tv_news_abstracts/vandy
     scrapy crawl vandy_news -a filter=2019-11 -o 2019-11.csv -t csv --loglevel INFO
 
+Incremental scrape with date range:
+
+    scrapy crawl vandy_news -a start_date=2025-01-01 -a end_date=2025-12-31 -O output.jsonl
+
+Update existing data:
+
+    scrapy crawl vandy_news -a start_date=2025-05-01 -O new_data.jsonl
+
 ## Final Data
+
+Data coverage: 1968 through May 8, 2025.
 
 Final data is posted at [Harvard Dataverse](https://doi.org/10.7910/DVN/BP2JXU)
 
 * Raw HTML (`html-vandy.tar.bz2.parta*`)
     To joined them to a file please run ```cat html-vandy.tar.bz2.parta* > html-vandy.tar.bz2```
 * Final CSV (`vandy.csv`)
+
+### 2020-2025 Subset
+
+A subset of data from 2020-2025 is also available:
+
+* `vandy_2020_2025_data.tar.gz` (34.2 MB, 226,594 records)
+* `vandy_2020_2025_html.tar.gz` (638.8 MB)
 
 The Scrapy HTTP cache (`httpcach-vandy.tar.bz2`) is also posted. Please extract it to `.scrapy` under the `vandy` folder. Then the spider can use the webpages from the cached data if you don't want to get the live data from the website.
 
