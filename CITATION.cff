@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite the versioned Dataverse release when using these data."
+title: "Vanderbilt Television News Archive Abstracts"
+type: dataset
+version: "1.0.0"
+authors:
+  - family-names: Laohaprapanon
+    given-names: Suriyan
+  - family-names: Sood
+    given-names: Gaurav
+repository-code: "https://github.com/notnews/vandy_tv_news_abstracts"
+identifiers:
+  - type: doi
+    value: "10.7910/DVN/BP2JXU"
+license: MIT
+keywords:
+  - television news
+  - abstracts
+  - Vanderbilt
