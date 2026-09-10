@@ -37,7 +37,7 @@ Historical coverage includes ABC, CBS, NBC, CNN, and FNC. The new API includes a
 
 The old CSV stored page IDs in `broadcast_order`. Conversion moves that value to `broadcast_id`; actual listing positions cannot be recovered from that column. New API IDs are alphanumeric, and observed legacy mappings are null.
 
-Known archive defects from the original notes: one malformed metadata block, six missing durations, two missing broadcasts, and 45 missing-program references. The exact URLs remain in [historical NOTES.md](https://github.com/notnews/vandy_tv_news_abstracts/blob/901bd99/NOTES.md). These are observed examples, not corpus-wide defect rates.
+Known archive defects from the original notes: one malformed metadata block, six missing durations, two missing broadcasts, and 45 missing-program references. The exact URLs remain in [historical NOTES.md](https://github.com/notnews/vandy_tv_news_abstracts/blob/32ff6b13d9ae43434f9bb707b43f360c0d6523a2/NOTES.md). These are observed examples, not corpus-wide defect rates.
 
 No historical live HTML was available during cleanup. Historical selector tests use explicitly labeled synthetic fixtures; current API tests use captured responses.
 
@@ -50,7 +50,7 @@ No historical live HTML was available during cleanup. Historical selector tests 
 
 The current endpoint is discovered from the site's published application bundle. Raw JSON lives beside the checkpoint under `raw/`; Scrapy's HTTP cache is stored under `.scrapy/data/httpcache`. Historical HTML parsers remain available for offline use. The original cache export belongs to the old routes and is not a current API checkpoint.
 
-The pre-cleanup implementation is preserved at [901bd99](https://github.com/notnews/vandy_tv_news_abstracts/tree/901bd99). New fetches write checkpoints under `data/`; reruns skip successful records and retry failures. Pure parsers read saved responses without accessing the network. Fixture provenance is in [tests/fixtures/SOURCES.md](tests/fixtures/SOURCES.md).
+The pre-cleanup implementation is preserved at [32ff6b13d9ae43434f9bb707b43f360c0d6523a2](https://github.com/notnews/vandy_tv_news_abstracts/tree/32ff6b13d9ae43434f9bb707b43f360c0d6523a2). New fetches write checkpoints under `data/`; reruns skip successful records and retry failures. Pure parsers read saved responses without accessing the network. Fixture provenance is in [tests/fixtures/SOURCES.md](tests/fixtures/SOURCES.md).
 
 An interrupted, unterminated final JSONL record is removed before resuming; complete records are preserved. A valid final record missing only its newline is retained. Malformed complete lines remain errors.
 
