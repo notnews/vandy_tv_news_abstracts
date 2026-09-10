@@ -39,7 +39,7 @@ The old CSV stored page IDs in `broadcast_order`. Conversion moves that value to
 
 Known archive defects from the original notes: one malformed metadata block, six missing durations, two missing broadcasts, and 45 missing-program references. The exact URLs remain in [historical NOTES.md](https://github.com/notnews/vandy_tv_news_abstracts/blob/32ff6b13d9ae43434f9bb707b43f360c0d6523a2/NOTES.md). These are observed examples, not corpus-wide defect rates.
 
-No historical live HTML was available during cleanup. Historical selector tests use explicitly labeled synthetic fixtures; current API tests use captured responses.
+Historical HTML could not be retrieved from the live site on 2026-09-10. Historical selector tests use explicitly labeled synthetic fixtures; current API tests use captured responses.
 
 ## Collection methods
 
@@ -50,7 +50,7 @@ No historical live HTML was available during cleanup. Historical selector tests 
 
 The current endpoint is discovered from the site's published application bundle. Raw JSON lives beside the checkpoint under `raw/`; Scrapy's HTTP cache is stored under `.scrapy/data/httpcache`. Historical HTML parsers remain available for offline use. The original cache export belongs to the old routes and is not a current API checkpoint.
 
-The pre-cleanup implementation is preserved at [32ff6b13d9ae43434f9bb707b43f360c0d6523a2](https://github.com/notnews/vandy_tv_news_abstracts/tree/32ff6b13d9ae43434f9bb707b43f360c0d6523a2). New fetches write checkpoints under `data/`; reruns skip successful records and retry failures. Pure parsers read saved responses without accessing the network. Fixture provenance is in [tests/fixtures/SOURCES.md](tests/fixtures/SOURCES.md).
+The historical implementation is preserved at [32ff6b13d9ae43434f9bb707b43f360c0d6523a2](https://github.com/notnews/vandy_tv_news_abstracts/tree/32ff6b13d9ae43434f9bb707b43f360c0d6523a2). New fetches write checkpoints under `data/`; reruns skip successful records and retry failures. Pure parsers read saved responses without accessing the network. Fixture provenance is in [tests/fixtures/SOURCES.md](tests/fixtures/SOURCES.md).
 
 An interrupted, unterminated final JSONL record is removed before resuming; complete records are preserved. A valid final record missing only its newline is retained. Malformed complete lines remain errors.
 
@@ -102,4 +102,4 @@ Use [CITATION.cff](CITATION.cff) and cite the relevant [Dataverse release](https
 
 ## License
 
-Code is [MIT licensed](LICENSE). News text, abstracts, and archived pages retain their owners' rights; a code license does not grant rights to those materials. Consult the terms of the linked data release.
+Code is [MIT licensed](LICENSE). News text, abstracts, and archived pages retain their owners' rights; a code license does not grant rights to those materials. The [Dataverse DOI record](https://api.datacite.org/dois/10.7910/DVN/BP2JXU) specifies CC0 1.0 for the deposit. Consult the release for access conditions.
