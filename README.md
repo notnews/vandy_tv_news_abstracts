@@ -14,11 +14,11 @@ Segment abstracts from the Vanderbilt Television News Archive, with tools to con
 | `vandy_2020_2025_data.tar.gz` | 2020–2025 | 226,594, historical documentation | Same DOI |
 | `vandy_2020_2025_html.tar.gz` | 2020–2025 | Raw subset HTML | Same DOI |
 
-Historical counts below describe published releases or the local files identified in the table, not a new full collection. Dataverse metadata requests returned HTTP 403 during cleanup on 2026-09-10; unverified release claims remain labeled as historical documentation.
+Counts describe the releases or local files identified above. Dataverse metadata requests returned HTTP 403 on 2026-09-10, so historical release counts could not all be reverified.
 
 ## Column dictionary
 
-| Parquet columns | Type | Meaning |
+| Columns | Type | Description |
 |---|---|---|
 | `broadcast_id` | string | Historical segment page ID; null for API rows without a legacy mapping |
 | `segment_id`, `program_id` | string | New API segment and broadcast identifiers; not interchangeable with historical page IDs |
@@ -41,7 +41,7 @@ Known archive defects from the original notes: one malformed metadata block, six
 
 No historical live HTML was available during cleanup. Historical selector tests use explicitly labeled synthetic fixtures; current API tests use captured responses.
 
-## How collected
+## Collection methods
 
 | Era | Method |
 |---|---|
@@ -56,20 +56,45 @@ An interrupted, unterminated final JSONL record is removed before resuming; comp
 
 ## Usage
 
-Python 3.12 or later and [uv](https://docs.astral.sh/uv/) are required.
+Python 3.12 or later and [uv](https://docs.astral.sh/uv/) are required. Run these commands from the repository root. Keep downloaded inputs and generated files under ignored `data/`.
+
+### Install
 
 ```sh
 uv sync --frozen --group dev
+```
+
+### Collect
+
+```sh
 uv run vandy-tv-news scrape --start 2025-05 --end 2025-05 --limit 20
 uv run scrapy crawl broadcasts -a start=2025-05 -a end=2025-05 -a limit=20
+```
+
+### Convert
+
+```sh
 uv run vandy-tv-news to-parquet data/abstracts.jsonl --out data/abstracts.parquet
 uv run vandy-tv-news to-parquet data/vandy.csv --start 2020 --end 2025 --out data/vandy_2020_2025.parquet
+```
+
+### Upload
+
+The `upload` command reads `DATAVERSE_API_TOKEN` from the environment and adds the specified file to Dataverse. It does not publish a dataset version.
+
+```sh
 uv run vandy-tv-news upload data/abstracts.parquet
 ```
 
-Run `make check` for Ruff, formatting, pytest, and pre-commit. `make ci-docker` runs lint and tests in standard Python 3.12 and 3.14 Docker images. CI uses the same lockfile and checks. Large inputs and generated data belong under ignored `data/`, not in Git.
+## Development
 
-The `upload` command reads `DATAVERSE_API_TOKEN` from the environment and adds the specified file to Dataverse. It does not publish a dataset version. Cleanup does not upload or replace any remote data.
+Run the local checks:
+
+```sh
+make check
+```
+
+This runs Ruff, formatting, pytest, and pre-commit. Run `make ci-docker` to check lint and tests in standard Python 3.12 and 3.14 Docker images. CI uses the same lockfile and checks. Install the Git hooks with `uv run pre-commit install`.
 
 ## Citation
 
