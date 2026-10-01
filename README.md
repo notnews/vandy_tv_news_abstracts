@@ -1,6 +1,5 @@
 # Vanderbilt TV News Abstracts
 
-[![CI](https://github.com/notnews/vandy_tv_news_abstracts/actions/workflows/ci.yml/badge.svg)](https://github.com/notnews/vandy_tv_news_abstracts/actions/workflows/ci.yml)
 [![Data](https://img.shields.io/badge/data-Dataverse-blue)](https://doi.org/10.7910/DVN/BP2JXU)
 [![Code license](https://img.shields.io/badge/code-MIT-green)](LICENSE)
 
@@ -94,7 +93,7 @@ Run the local checks:
 make check
 ```
 
-This runs Ruff, formatting, pytest, and pre-commit. Run `make ci-docker` to check lint and tests in standard Python 3.12 and 3.14 Docker images. CI uses the same lockfile and checks. Install the Git hooks with `uv run pre-commit install`.
+Run the relevant parser tests after code changes.
 
 ## Citation
 
@@ -103,3 +102,7 @@ Use [CITATION.cff](CITATION.cff) and cite the relevant [Dataverse release](https
 ## License
 
 Code is [MIT licensed](LICENSE). News text, abstracts, and archived pages retain their owners' rights; a code license does not grant rights to those materials. The [Dataverse DOI record](https://api.datacite.org/dois/10.7910/DVN/BP2JXU) specifies CC0 1.0 for the deposit. Consult the release for access conditions.
+
+## Maintenance
+
+This is a point-in-time data collection; see the [shared maintenance policy](https://github.com/soodoku/data-repos#maintenance-policy). Run the affected parser tests when code changes and the relevant data validators when inputs or outputs change. Full-data checks and publication are explicit operations. Routine edits do not require hosted CI, Docker, a Python-version matrix, Preen or pre-commit.
